@@ -56,6 +56,10 @@ body {
 
 .hero h1 {
     font-size: 4rem;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero h2 {
@@ -90,6 +94,24 @@ body {
     text-decoration: none;
 }
 
+.hero-image {
+    position: relative;
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: #3b82f6;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 35;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
 .hero-image img {
     width: 350px;
     height: 350px;
@@ -109,6 +131,7 @@ body {
     padding: 30px;
     border-radius: 15px;
     text-align: center;
+    transition: .3s;
 }
 
 .about {
@@ -147,7 +170,8 @@ body {
 }
 
 .skill-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, .25);
 }
 
 .education {
@@ -164,6 +188,12 @@ body {
     padding: 30px;
     border-radius: 15px;
     margin-bottom: 20px;
+    transition: .3s;
+}
+
+.education-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, .25);
 }
 
 .projects {
@@ -196,7 +226,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     overflow: hidden;
-    transition: .4s;
+    transition: .3s;
 }
 
 .project-card:hover {
@@ -254,6 +284,26 @@ body {
 
 .project-links a:hover {
     background: #2563eb;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: .8s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-card {
+    transition: .3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, .25);
 }
 
 @media(max-width:768px) {
