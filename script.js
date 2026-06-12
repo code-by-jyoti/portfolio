@@ -1,5 +1,5 @@
 const text =
-    "Frontend Developer";
+    "Building Modern Web Experiences";
 
 let index = 0;
 
@@ -33,3 +33,43 @@ window.addEventListener(
 
     }
 );
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav-links a");
+
+window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+
+        if (scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+        }
+
+    });
+
+});
+
+const menuIcon = document.querySelector(".menu-icon");
+const mobileMenu = document.querySelector(".nav-links");
+
+menuIcon.addEventListener("click", () => {
+    mobileMenu.classList.toggle("show");
+});
+
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+        mobileMenu.classList.remove("show");
+    });
+
+});
